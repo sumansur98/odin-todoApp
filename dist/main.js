@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("check");const t=function(){let t="",e=null;return{getTaskDetails:()=>({taskName:t,taskDueDate:e}),setTaskDetails:(s,a)=>{t=s,e=a}}}();t.setTaskDetails("task1","date"),console.log(t.getTaskDetails())})();
