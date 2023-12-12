@@ -1,8 +1,47 @@
-import Task from "./modules/Task";
-import Project from "./modules/Project";
 import './style.css'
 
-console.log('check');
-const task = Task();
-task.setTaskDetails('task1','date')
-console.log(task.getTaskDetails());
+function Task(){
+    let taskName = "";
+    let taskDueDate = null;
+
+    const getTaskDetails = ()=>{
+        return {taskName, taskDueDate}
+    }
+
+    const setTaskDetails = (name, date)=>{
+        taskName = name;
+        taskDueDate = date;
+    }
+
+    return {getTaskDetails, setTaskDetails};
+}
+
+function Project(){
+    let projectName = '';
+    let projectTaskList = [];
+
+    const createProject = (name)=>{
+        projectName = name;
+    }
+
+    const addTask = (name, date)=>{
+        const task = Task();
+        task.setTaskDetails(name, date);
+        projectTaskList.push(task);
+    }
+
+    return {createProject, addTask};
+}
+
+function Storage(){
+    let allListData = {};
+
+    const getAllData = ()=>{
+        let existingStorage = localStorage.getItem('todoData');
+        if(existingStorage){
+            allListData = existingStorage;
+        }
+    }
+
+    
+}
